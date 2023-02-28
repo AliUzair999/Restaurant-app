@@ -1,0 +1,54 @@
+#iBody {
+    background-image: url("./bgImgHome.jpg");
+    background-color: #888888;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#ih1 {
+    font-size: 40pt;
+}
+
+.fWhite{ 
+color: white;
+    position: relative;
+    justify-content: flex-end;
+}
+
+#ip {
+    font-size: 25pt;
+}
+
+
+/* #ih1{
+
+}
+
+#udtHead {
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    padding: 30px;
+    text-align: center
+}
+
+#udtable {
+    width: 90%;
+
+    margin: auto;
+}
+
+#coTable {
+    width: 95%;
+    margin: auto;
+    border-color: white;
+}
+
+#coTableHead {
+    color: white;
+    text-transform: uppercase;
+    padding: 30px;
+    text-align: center
+}

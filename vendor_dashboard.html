@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Vendor Dashboard</title>
+</head>
+
+<body>
+    <h1> Vendor Dashboard </h1>
+    <h2 id="vdh2">welcome
+        <script>document.write(JSON.parse(localStorage.getItem("currentVendor")).vendorName)</script>
+    </h2>
+    <br><br>
+    <!-- <h2>Add Items</h2> -->
+    <button onclick="addItem()">Add New Item</button>
+    <br><br><br>
+    <label for="">Item Name
+        <input type="text" name="" id="vdItemName" disabled>
+    </label>
+    <br><br>
+    <label for="">Item Price
+        <input type="number" name="" id="vdItemPrice" disabled>
+    </label>
+    <!-- <br><br>
+        <label for="">Item Discription
+            <input type="textarea" name="" id="Discription">
+        </label> -->
+    <br><br>
+    <label for="">Item Discription
+        <input type="textarea" name="" id="vdIteDiscription" disabled>
+    </label>
+    <br><br>
+    <button onclick="saveItem()">Save Item</button>
+    <hr>
+
+    <ul id="MenuItems">
+
+    </ul>
+
+
+
+    <script src="app.js"></script>
+    <script>
+        for (var i = 0; i < menuItems.length; i++) {
+            var InitialItemli = document.createElement('li');
+            var InitialItemliValue = document.createTextNode(menuItems[i].name)
+            InitialItemli.appendChild(InitialItemliValue)
+            mainul.appendChild(InitialItemli)
+        }
+    </script>
+    <!-- <script src="user_dashboard.js"></script> -->
+
+</body>
+
+</html>

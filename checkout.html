@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Check Out </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Checkout </h1>
+    <h2 id="uch2">welcome
+        <script>document.write(JSON.parse(localStorage.getItem("currentUser")).userName)</script>
+    </h2>
+    <hr>
+
+
+    <table class="table table-striped table-dark table-bordered table-hover" id="coTable">
+        <thead id="coTableHead">
+            <tr>
+                <th scope="col" width="60%">Name</th>
+                <th scope="col" width="10%">Remove</th>
+                <th scope="col" width="10%">Qty</th>
+                <th scope="col" width="10%">price</th>
+                <th scope="col" width="10%">Total</th>
+            </tr>
+        </thead>
+        <tbody id="coTableBody">
+        </tbody>
+    </table>
+
+    <br><br>
+    <!-- <button disabled onclick="checkout()" id="checkoutBtn">Proceed to Checkout</button> -->
+
+
+
+    <!-- <ul id="userul" ></ul> -->
+
+
+
+    <script src="app.js"></script>
+    <!-- <script src="user_dashboard.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script>
+        if (cart.length === 0) {
+            cart = JSON.parse(localStorage.getItem("cart"))
+        }
+
+
+        let totPrice = 0;
+        for (var i = 0; i < cart.length + 1; i++) {
+            let coTableBody = document.getElementById("coTableBody")
+            
+            
+            if (i < cart.length) {
+
+                let coTableBodytr = document.createElement("tr")
+
+
+                let coTableBodyName = document.createElement("td")
+                let coTableBodyNameValue = document.createTextNode(cart[i].name)
+                coTableBodyName.appendChild(coTableBodyNameValue)
+                coTableBodytr.append(coTableBodyName)
+
+                let coTableBodyRemtd = document.createElement("td")
+                let coTableBodyRem = document.createElement("button")
+                let coTableBodyRemtdValue = document.createTextNode(" X ")
+                coTableBodyRem.appendChild(coTableBodyRemtdValue)
+                coTableBodyRem.setAttribute("onclick", "remItem(this)")
+                // coTableBodyRem.setAttribute("margin-top", "5")
+                coTableBodyRemtd.appendChild(coTableBodyRem)
+                // coTableBodyRemtd.setAttribute("text-align", "center")
+                coTableBodytr.append(coTableBodyRemtd)
+
+
+                let coTableBodyQty = document.createElement("td")
+                let coTableBodyQtyValue = document.createTextNode(cart[i].qty)
+                coTableBodyQty.appendChild(coTableBodyQtyValue)
+                coTableBodytr.append(coTableBodyQty)
+
+                let coTableBodyPrice = document.createElement("td")
+                let coTableBodyPriceValue = document.createTextNode(cart[i].price)
+                coTableBodyPrice.appendChild(coTableBodyPriceValue)
+                coTableBodytr.append(coTableBodyPrice)
+
+
+                let coTableBodyTotal = document.createElement("td")
+                let coTableBodyTotalValue = document.createTextNode(parseInt(cart[i].qty) * parseInt(cart[i].price))
+                totPrice = (parseInt(cart[i].qty) * parseInt(cart[i].price)) + totPrice                
+                coTableBodyTotal.appendChild(coTableBodyTotalValue)
+                coTableBodytr.append(coTableBodyTotal)
+                coTableBody.appendChild(coTableBodytr)
+
+
+            }
+            
+            if (i === cart.length) {
+                let coTableBodytr = document.createElement("tr")
+
+
+                let coTableBodyName = document.createElement("td")
+                let coTableBodyNameValue = document.createTextNode("   TOTAL")
+                coTableBodyName.appendChild(coTableBodyNameValue)
+                coTableBodytr.append(coTableBodyName)
+
+                let coTableBodyRemtd = document.createElement("td")
+                let coTableBodyRemtdValue = document.createTextNode("")
+                coTableBodyRemtd.appendChild(coTableBodyRemtdValue)
+                coTableBodytr.append(coTableBodyRemtd)
+
+                let coTableBodyQty = document.createElement("td")
+                let coTableBodyQtyValue = document.createTextNode("")
+                coTableBodyQty.appendChild(coTableBodyQtyValue)
+                coTableBodytr.append(coTableBodyQty)
+
+                let coTableBodyPrice = document.createElement("td")
+                let coTableBodyPriceValue = document.createTextNode("")
+                coTableBodyPrice.appendChild(coTableBodyPriceValue)
+                coTableBodytr.append(coTableBodyPrice)
+
+
+                let coTableBodyTotal = document.createElement("td")
+                let coTableBodyTotalValue = document.createTextNode(totPrice)
+                coTableBodyTotal.appendChild(coTableBodyTotalValue)
+                coTableBodytr.append(coTableBodyTotal)
+                coTableBody.appendChild(coTableBodytr)
+            }
+        }
+    </script>
+
+</body>
+
+</html>
